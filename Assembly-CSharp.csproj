@@ -56,6 +56,7 @@
      <Compile Include="Assets\Scripts\BallSizeController.cs" />
      <Compile Include="Assets\Scripts\Bouncer.cs" />
      <Compile Include="Assets\Scripts\CameraController.cs" />
+     <Compile Include="Assets\Scripts\EndSceneController.cs" />
      <Compile Include="Assets\Scripts\PickupController.cs" />
      <Compile Include="Assets\Scripts\PickupCountController.cs" />
      <Compile Include="Assets\Scripts\PlayerController.cs" />
@@ -63,6 +64,7 @@
      <Compile Include="Assets\Scripts\Rotator.cs" />
      <Compile Include="Assets\Scripts\SpawnController.cs" />
      <Compile Include="Assets\Scripts\StartMenuScript.cs" />
+     <Compile Include="Assets\Scripts\StoryController.cs" />
      <Compile Include="Assets\Scripts\TimeController.cs" />
      <None Include="Assets\Scene Props\Water\Water4\Shaders\FXWater4Simple.shader" />
      <None Include="Assets\Standard Assets\Environment\Water (Basic)\Shaders\FXWaterBasic.shader" />

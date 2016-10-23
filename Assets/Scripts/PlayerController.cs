@@ -70,12 +70,14 @@ public class PlayerController : MonoBehaviour {
 		// Deactivate pickup object
 		if (other.gameObject.CompareTag ("Pickup")) {
 			other.gameObject.SetActive (false);
-		} 
-		// Move onto next level
-		else if (other.gameObject.CompareTag ("Portal")) {
-			Debug.Log ("NEXT LEVEL");
+		} else if (other.gameObject.CompareTag ("Pipe")) {
+			GetComponent<Rigidbody> ().angularDrag = 0f;
+		} else {
+			GetComponent<Rigidbody> ().angularDrag = 3f;
 		}
+
 	}
+
 
 	void OnTriggerStay(Collider other){
 		// Temporarily disable player
@@ -83,8 +85,9 @@ public class PlayerController : MonoBehaviour {
 			Alive = false;
 			AudioSource.PlayClipAtPoint (WaterClip, transform.position);
 			StartCoroutine (Disable ());
-		}
+		} 
 	}
+
 
 	/* Disables player movement temporarily after contact with water */
 	IEnumerator Disable(){

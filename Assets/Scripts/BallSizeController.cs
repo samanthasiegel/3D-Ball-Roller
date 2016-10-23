@@ -36,20 +36,20 @@ public class BallSizeController : MonoBehaviour {
 			SizeTrackerInt = 1;
 			SizeTrackerBool = !SizeTrackerBool;
 			transform.localScale = new Vector3 (OriginalSize.x, OriginalSize.y, OriginalSize.z);
-			GetComponent<PlayerController> ().JumpForce = 400f;
+			GetComponent<PlayerController> ().JumpForce = 250f;
 		} else if (SizeTrackerInt == 1) {
 			SizeTrackerInt = 2;
 			transform.localScale = new Vector3 (OriginalSize.x * 2f, OriginalSize.y * 2f, OriginalSize.z * 2f);
-			GetComponent<PlayerController> ().JumpForce = 460f;
+			GetComponent<PlayerController> ().JumpForce = 300f;
 		} else if (SizeTrackerInt == 2) {
 			SizeTrackerBool = !SizeTrackerBool;
 			SizeTrackerInt = 3;
 			transform.localScale = new Vector3 (OriginalSize.x, OriginalSize.y, OriginalSize.z);
-			GetComponent<PlayerController> ().JumpForce = 400f;
+			GetComponent<PlayerController> ().JumpForce = 250f;
 		} else if(SizeTrackerInt == 3){
 			SizeTrackerInt = 0;
 			transform.localScale = new Vector3 (OriginalSize.x * 0.5f, OriginalSize.y * 0.5f, OriginalSize.z * 0.5f);
-			GetComponent<PlayerController> ().JumpForce = 350f;
+			GetComponent<PlayerController> ().JumpForce = 200f;
 		}
 
 		GetComponent<PlayerController> ().InitGroundCheck ();
