@@ -31,10 +31,10 @@ public class BallSizeController : MonoBehaviour {
 		}
 	}
 
+	// Changes size of snowball to next state, and updates jump force accordingly
 	void ChangeSize(){
 		if (SizeTrackerInt == 0) {
 			SizeTrackerInt = 1;
-			SizeTrackerBool = !SizeTrackerBool;
 			transform.localScale = new Vector3 (OriginalSize.x, OriginalSize.y, OriginalSize.z);
 			GetComponent<PlayerController> ().JumpForce = 250f;
 		} else if (SizeTrackerInt == 1) {

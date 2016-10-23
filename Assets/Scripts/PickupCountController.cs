@@ -11,9 +11,8 @@ public class PickupCountController : MonoBehaviour {
 	void Start () {
 	}
 	
-	// Update is called once per frame
+	// Keeps track of number of pickups on screen
 	void Update () {
-
 		int numberOfPickups = GameObject.FindGameObjectsWithTag ("Pickup").Length;
 		PickupCount.text = "Number of pickups: " + numberOfPickups;
 	

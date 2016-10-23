@@ -91,7 +91,7 @@ public class PlayerController : MonoBehaviour {
 
 	/* Disables player movement temporarily after contact with water */
 	IEnumerator Disable(){
-		// Playser starts feeling the effect of the water
+		// Player starts feeling the effect of the water
 		WaterEffect = true;
 		int numTimes = 6;
 		MeshRenderer mr = GetComponent<MeshRenderer> ();

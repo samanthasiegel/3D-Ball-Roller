@@ -20,7 +20,7 @@ public class Bouncer : MonoBehaviour {
 	
 	}
 
-
+	// Creates bouncing effect on game object
 	IEnumerator Bounce(){
 		while (gameObject.activeSelf) {
 			if (transform.position.y > (yPosition + 0.2f)) {

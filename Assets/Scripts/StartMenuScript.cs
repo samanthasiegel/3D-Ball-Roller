@@ -12,11 +12,6 @@ public class StartMenuScript : MonoBehaviour {
 		StartButton = StartButton.GetComponent<Button> ();
 
 	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
 
 	public void StartClicked(){
 		SceneManager.LoadScene (1);

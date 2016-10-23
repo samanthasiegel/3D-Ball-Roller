@@ -16,17 +16,14 @@ public class StoryController : MonoBehaviour {
 		GoButton = GoButton.GetComponent<Button> ();
 	
 	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
 
+	// Moves onto next part of story (sets active)
 	public void NextClicked(){
 		StoryText1.gameObject.SetActive (false);
 		StoryText2.gameObject.SetActive (true);
 	}
 
+	// Starts first level of game
 	public void GoClicked(){
 		SceneManager.LoadScene (2);
 	}

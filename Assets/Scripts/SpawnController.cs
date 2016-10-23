@@ -19,12 +19,10 @@ public class SpawnController : MonoBehaviour {
 	public float stopSpawning;
 
 
-	// Use this for initialization
 	void Start () {
 		InvokeRepeating ("Spawn", spawnTime, spawnTime);
 	}
 
-	// Update is called once per frame
 	void Update () {
 		stopSpawning -= Time.deltaTime;
 

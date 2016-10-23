@@ -7,15 +7,6 @@ public class PortalController : MonoBehaviour {
 	public int nextLevel;
 	public AudioClip VictoryClip;
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
 
 	// Move onto next level if all pickups have been collected
 	void OnTriggerEnter(Collider other){
