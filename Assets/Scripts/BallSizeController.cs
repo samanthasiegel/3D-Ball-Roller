@@ -5,8 +5,11 @@ public class BallSizeController : MonoBehaviour {
 
 
 	private int SizeTrackerInt;
-	// this int is used to track the size of the ball... when SizeTracker = 0, the ball is small,
-	// when SizeTracker = 1, the ball is medium size, and when SizeTracker = 2, the ball is large.
+	// this int is used to track the size of the ball
+	// 0 = ball is small, next state is normal
+	// 1 = ball is normal, next state is big
+	// 2 = ball is big, next state is normal
+	// 3 = ball is normal, next state is small
 
 	private bool SizeTrackerBool;
 
@@ -19,44 +22,36 @@ public class BallSizeController : MonoBehaviour {
 		OriginalSize = transform.localScale;
 	}
 
-	// Update is called once per frame
+	// Change size of player if hit key "s"
 	void Update () {
 		
 		if(Input.GetKeyDown(KeyCode.S)){
-
 			ChangeSize ();
 
 		}
 	}
 
 	void ChangeSize(){
-
-		if (SizeTrackerInt == 1) {
-
-			if (SizeTrackerBool) {
-
-				SizeTrackerBool = !SizeTrackerBool;
-				SizeTrackerInt = 2;
-				transform.localScale = new Vector3 (OriginalSize.x * 2f, OriginalSize.y * 2f, OriginalSize.z * 2f);
-				
-			} else {
-
-				SizeTrackerInt = 0;
-				SizeTrackerBool = !SizeTrackerBool;
-				transform.localScale = new Vector3 (OriginalSize.x * 0.5f, OriginalSize.y * 0.5f, OriginalSize.z * 0.5f);
-			}
-		}
-
-		else if (SizeTrackerInt == 2) {
-
+		if (SizeTrackerInt == 0) {
 			SizeTrackerInt = 1;
-			transform.localScale = OriginalSize;
-		}
-
-		else {
-
-			SizeTrackerInt = 1;
+			SizeTrackerBool = !SizeTrackerBool;
 			transform.localScale = new Vector3 (OriginalSize.x, OriginalSize.y, OriginalSize.z);
+			GetComponent<PlayerController> ().JumpForce = 400f;
+		} else if (SizeTrackerInt == 1) {
+			SizeTrackerInt = 2;
+			transform.localScale = new Vector3 (OriginalSize.x * 2f, OriginalSize.y * 2f, OriginalSize.z * 2f);
+			GetComponent<PlayerController> ().JumpForce = 460f;
+		} else if (SizeTrackerInt == 2) {
+			SizeTrackerBool = !SizeTrackerBool;
+			SizeTrackerInt = 3;
+			transform.localScale = new Vector3 (OriginalSize.x, OriginalSize.y, OriginalSize.z);
+			GetComponent<PlayerController> ().JumpForce = 400f;
+		} else if(SizeTrackerInt == 3){
+			SizeTrackerInt = 0;
+			transform.localScale = new Vector3 (OriginalSize.x * 0.5f, OriginalSize.y * 0.5f, OriginalSize.z * 0.5f);
+			GetComponent<PlayerController> ().JumpForce = 350f;
 		}
+
+		GetComponent<PlayerController> ().InitGroundCheck ();
 	}
 }
